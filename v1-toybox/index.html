@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Robotics — Build robots people love</title>
+  <meta name="description" content="An AI-native creation engine for robots. Build robots people love." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Nav -->
+  <header class="nav">
+    <a href="#" class="logo">
+      <span class="logo-mark">◉</span>
+      <span>Game Robotics</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#engine">The engine</a>
+      <a href="#robot">The robot</a>
+      <a href="#vision">Vision</a>
+      <a href="#signup" class="btn btn-sm btn-primary">Get early access</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">
+        <span class="dot"></span> The AI-native creation engine for robots
+      </div>
+      <h1>
+        Build robots<br />
+        <span class="squiggle-wrap">people <em>love</em>.<svg class="squiggle" viewBox="0 0 220 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8 Q 30 -2, 60 6 T 120 6 T 218 4" stroke="#3BA7E8" stroke-width="4" stroke-linecap="round"/></svg></span>
+      </h1>
+      <p class="lede">
+        Game Robotics is a creation engine that brings sensors, behaviors, AI, motion,
+        and electronics into one playful, powerful place — like a modern game engine,
+        but for the physical world.
+      </p>
+      <form class="signup" onsubmit="event.preventDefault(); document.getElementById('signup-success').hidden = false;">
+        <input type="email" placeholder="you@makestuff.com" aria-label="Email address" required />
+        <button type="submit" class="btn btn-primary">
+          Get early access <span aria-hidden="true">→</span>
+        </button>
+      </form>
+      <p id="signup-success" class="signup-success" hidden>Thanks! We'll be in touch. 🎉</p>
+      <p class="tiny-print">No spam. Just launch news + build logs.</p>
+    </div>
+    <div class="hero-visual">
+      <div class="blob blob-yellow"></div>
+      <div class="blob blob-blue"></div>
+      <img src="assets/robot-play.png" alt="A cheerful yellow robot with big blue eyes" class="hero-robot" />
+      <div class="sticker sticker-1">hi! 👋</div>
+      <div class="sticker sticker-2">✨ hackable</div>
+      <div class="sticker sticker-3">built with GR</div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>perception</span><span>◉</span>
+      <span>behavior</span><span>◉</span>
+      <span>AI &amp; reasoning</span><span>◉</span>
+      <span>motion</span><span>◉</span>
+      <span>electronics</span><span>◉</span>
+      <span>simulation</span><span>◉</span>
+      <span>deployment</span><span>◉</span>
+      <span>perception</span><span>◉</span>
+      <span>behavior</span><span>◉</span>
+      <span>AI &amp; reasoning</span><span>◉</span>
+      <span>motion</span><span>◉</span>
+      <span>electronics</span><span>◉</span>
+      <span>simulation</span><span>◉</span>
+      <span>deployment</span><span>◉</span>
+    </div>
+  </div>
+
+  <!-- The pitch -->
+  <section class="pitch" id="engine">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span> The problem</div>
+      <h2>Robotics is hard because it's <em>eight things at once</em>.</h2>
+      <p class="section-lede">
+        Electronics. Embedded systems. Sensors. Computer vision. AI. Motion control.
+        Mechanical design. Behavior programming. They live in separate tools and
+        ecosystems — so building anything is a slog, even for experts.
+      </p>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-label">You describe what you want:</div>
+      <p class="prompt-text">
+        “When someone approaches my robot, recognize them, turn toward them, remember
+        who they are, and react differently depending on whether they're smiling.”
+      </p>
+      <div class="prompt-arrow">↓</div>
+      <div class="prompt-result">Game Robotics turns intent into a working system.</div>
+    </div>
+  </section>
+
+  <!-- Feature grid -->
+  <section class="features">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span> One creation environment</div>
+      <h2>Every system a robot needs, in one place.</h2>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card fc-1">
+        <div class="feature-icon">👀</div>
+        <h3>Perception</h3>
+        <p>Cameras, object tracking, face recognition, audio, ToF, LiDAR and every other sensor.</p>
+      </div>
+      <div class="feature-card fc-2">
+        <div class="feature-icon">💛</div>
+        <h3>Behavior &amp; personality</h3>
+        <p>Reactions, state, emotions, decision making and expressive interactions.</p>
+      </div>
+      <div class="feature-card fc-3">
+        <div class="feature-icon">🧠</div>
+        <h3>AI &amp; reasoning</h3>
+        <p>Language models, planning, memory and agentic behavior baked in.</p>
+      </div>
+      <div class="feature-card fc-4">
+        <div class="feature-icon">🕺</div>
+        <h3>Motion &amp; animation</h3>
+        <p>Motors, servos, joints, poses, procedural motion and coordinated animation.</p>
+      </div>
+      <div class="feature-card fc-5">
+        <div class="feature-icon">⚡</div>
+        <h3>Electronics</h3>
+        <p>Microcontrollers, compute modules, motor controllers, displays, audio and power.</p>
+      </div>
+      <div class="feature-card fc-6">
+        <div class="feature-icon">🧩</div>
+        <h3>Hardware abstraction</h3>
+        <p>Describe what your robot should do — not every device underneath it.</p>
+      </div>
+      <div class="feature-card fc-7">
+        <div class="feature-icon">🌀</div>
+        <h3>Simulation</h3>
+        <p>Build and test behaviors virtually before deploying to real hardware.</p>
+      </div>
+      <div class="feature-card fc-8">
+        <div class="feature-icon">🚀</div>
+        <h3>Deployment</h3>
+        <p>Configure, compile and deploy the software and firmware your robot needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Game engine analogy -->
+  <section class="analogy">
+    <div class="analogy-inner">
+      <div class="eyebrow light"><span class="dot"></span> The philosophy</div>
+      <h2>What game engines did for virtual worlds,<br />we're doing for the physical one.</h2>
+      <p class="section-lede light">
+        You shouldn't need to understand face detection, servo control, sensor fusion
+        and embedded networking just to make a robot notice you and wave.
+      </p>
+      <div class="quote-card">
+        <p>
+          “Make my robot recognize me, follow me around the room,
+          and get excited when I come home.”
+        </p>
+        <div class="quote-tag">— you, five minutes from now</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The first robot -->
+  <section class="first-robot" id="robot">
+    <div class="fr-visual">
+      <div class="blob blob-yellow-sm"></div>
+      <img src="assets/robot-hero.png" alt="The first robot built with Game Robotics" />
+      <div class="sticker sticker-fr">expressive · intelligent · hackable</div>
+    </div>
+    <div class="fr-copy">
+      <div class="eyebrow"><span class="dot"></span> Meet the first robot</div>
+      <h2>We're not asking the world to adopt another platform. We're building an awesome robot.</h2>
+      <p>
+        Something people genuinely want — expressive, intelligent, hackable and fun.
+        But there's something different underneath it: <strong>the robot is built entirely
+        using Game Robotics.</strong>
+      </p>
+      <p>
+        Every perception system, behavior, animation, sensor and hardware integration
+        becomes another capability of the engine.
+      </p>
+      <ul class="pill-list">
+        <li>Enjoy it as a product</li>
+        <li>Or open the hood</li>
+        <li>Add sensors</li>
+        <li>Create new personalities</li>
+        <li>Build new capabilities</li>
+      </ul>
+      <p class="tagline">
+        <span>The robot proves the engine.</span><br />
+        <span>The engine enables the ecosystem.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Vision -->
+  <section class="vision" id="vision">
+    <div class="eyebrow"><span class="dot"></span> The bigger picture</div>
+    <h2>AI is going to cause an explosion in physical computing.</h2>
+    <p>
+      But building intelligent machines is still far too difficult. Game Robotics
+      exists to change that — so the next generation of creators can build
+      intelligent things in the physical world, the same way they build games today.
+    </p>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta" id="signup">
+    <div class="cta-inner">
+      <h2>Build robots people love.</h2>
+      <p>Early access is opening soon. Get in first.</p>
+      <form class="signup signup-lg" onsubmit="event.preventDefault(); document.getElementById('signup-success-2').hidden = false;">
+        <input type="email" placeholder="you@makestuff.com" aria-label="Email address" required />
+        <button type="submit" class="btn btn-primary btn-lg">
+          Get early access <span aria-hidden="true">→</span>
+        </button>
+      </form>
+      <p id="signup-success-2" class="signup-success" hidden>Thanks! We'll be in touch. 🎉</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="logo">
+        <span class="logo-mark">◉</span>
+        <span>Game Robotics</span>
+      </div>
+      <p class="footer-tag">An AI-native creation engine for robotics.</p>
+      <p class="footer-copy">© 2026 Game Robotics</p>
+    </div>
+  </footer>
+</body>
+</html>
