@@ -91,63 +91,228 @@
       </p>
     </div>
 
-    <div class="prompt-card">
-      <div class="prompt-label">You describe what you want:</div>
-      <p class="prompt-text">
-        “When someone approaches my robot, recognize them, turn toward them, remember
-        who they are, and react differently depending on whether they're smiling.”
-      </p>
-      <div class="prompt-arrow">↓</div>
-      <div class="prompt-result">Game Robotics turns intent into a working system.</div>
+    <div class="prompt-card" data-typewriter="let's make a robot that delivers food to people in food deserts. we want it expressive and friendly.">
+      <div class="prompt-topbar">
+        <span class="prompt-dot"></span>
+        <span class="prompt-dot"></span>
+        <span class="prompt-dot"></span>
+        <span class="prompt-tabname">intent.gr</span>
+      </div>
+      <div class="prompt-body">
+        <div class="prompt-label"><span class="pl-arrow">›</span> you describe what you want</div>
+        <p class="prompt-text">
+          <span class="prompt-quote">“</span><span class="prompt-typed" aria-live="polite"></span><span class="prompt-cursor" aria-hidden="true"></span><span class="prompt-quote">”</span>
+        </p>
+        <div class="prompt-status">
+          <span class="status-dot"></span> <span class="status-text">awaiting input…</span>
+        </div>
+      </div>
+
+      <!-- Blueprint diagram: appears after typing completes -->
+      <div class="blueprint" aria-label="Blueprint graph generated from your intent">
+        <div class="bp-grid" aria-hidden="true"></div>
+        <svg class="bp-wires" viewBox="0 0 800 380" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="wire-blue" x1="0" x2="1"><stop offset="0" stop-color="#3BA7E8"/><stop offset="1" stop-color="#3BA7E8"/></linearGradient>
+            <linearGradient id="wire-yellow" x1="0" x2="1"><stop offset="0" stop-color="#F5C518"/><stop offset="1" stop-color="#F5C518"/></linearGradient>
+            <linearGradient id="wire-green" x1="0" x2="1"><stop offset="0" stop-color="#7ED08C"/><stop offset="1" stop-color="#7ED08C"/></linearGradient>
+          </defs>
+          <path class="wire wire-1" d="M 170 200 C 220 200, 170 90, 220 90" stroke="url(#wire-yellow)" fill="none" stroke-width="3" stroke-linecap="round"/>
+          <path class="wire wire-2" d="M 170 200 C 220 200, 170 290, 220 290" stroke="url(#wire-yellow)" fill="none" stroke-width="3" stroke-linecap="round"/>
+          <path class="wire wire-3" d="M 360 90 L 440 90" stroke="url(#wire-blue)" fill="none" stroke-width="3" stroke-linecap="round"/>
+          <path class="wire wire-4" d="M 360 290 L 440 290" stroke="url(#wire-blue)" fill="none" stroke-width="3" stroke-linecap="round"/>
+          <path class="wire wire-5" d="M 580 90 C 620 90, 580 200, 620 200" stroke="url(#wire-green)" fill="none" stroke-width="3" stroke-linecap="round"/>
+          <path class="wire wire-6" d="M 580 290 C 620 290, 580 200, 620 200" stroke="url(#wire-green)" fill="none" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+
+        <div class="bp-node bp-event"     style="--x:2%;  --y:44%; --i:0">
+          <div class="bp-head">event · request</div>
+          <div class="bp-row"><span>intent</span><span class="pin pin-out"></span></div>
+        </div>
+        <div class="bp-node bp-fn"        style="--x:26%; --y:16%; --i:1">
+          <div class="bp-head">perception</div>
+          <div class="bp-row"><span class="pin pin-in"></span><span>vision + audio</span><span class="pin pin-out"></span></div>
+        </div>
+        <div class="bp-node bp-fn"        style="--x:26%; --y:66%; --i:2">
+          <div class="bp-head">navigation</div>
+          <div class="bp-row"><span class="pin pin-in"></span><span>route + obstacle</span><span class="pin pin-out"></span></div>
+        </div>
+        <div class="bp-node bp-behavior"  style="--x:52%; --y:16%; --i:3">
+          <div class="bp-head">expression</div>
+          <div class="bp-row"><span class="pin pin-in"></span><span>smile · greet</span><span class="pin pin-out"></span></div>
+        </div>
+        <div class="bp-node bp-fn"        style="--x:52%; --y:66%; --i:4">
+          <div class="bp-head">path plan</div>
+          <div class="bp-row"><span class="pin pin-in"></span><span>waypoints</span><span class="pin pin-out"></span></div>
+        </div>
+        <div class="bp-node bp-deploy"    style="--x:78%; --y:44%; --i:5">
+          <div class="bp-head">deliver</div>
+          <div class="bp-row"><span class="pin pin-in"></span><span>handoff · farewell</span></div>
+        </div>
+      </div>
+
+      <!-- Simulation viewport: top-down city map -->
+      <div class="simulation" aria-label="Live simulation of the robot delivering across a small city">
+        <div class="sim-viewport">
+          <!-- Map: buildings, streets, route, robot -->
+          <svg class="sim-map" viewBox="0 0 800 380" preserveAspectRatio="none" aria-hidden="true">
+            <!-- Background -->
+            <rect width="800" height="380" fill="#050912"/>
+
+            <!-- Building blocks -->
+            <g class="bldgs">
+              <rect x="30"  y="30"  width="360" height="140" rx="4" class="bldg"/>
+              <rect x="440" y="30"  width="160" height="140" rx="4" class="bldg"/>
+              <rect x="640" y="30"  width="130" height="140" rx="4" class="bldg bldg-dest"/>
+              <rect x="30"  y="220" width="360" height="80"  rx="4" class="bldg bldg-park"/>
+              <rect x="440" y="220" width="160" height="80"  rx="4" class="bldg"/>
+              <rect x="640" y="220" width="130" height="80"  rx="4" class="bldg"/>
+              <rect x="30"  y="340" width="740" height="30"  rx="4" class="bldg bldg-thin"/>
+            </g>
+
+            <!-- Street center dashed lines -->
+            <g class="street-lines">
+              <line x1="30"  y1="195" x2="770" y2="195"/>
+              <line x1="30"  y1="325" x2="770" y2="325"/>
+              <line x1="420" y1="30"  x2="420" y2="340"/>
+              <line x1="620" y1="30"  x2="620" y2="340"/>
+            </g>
+
+            <!-- Route: warehouse → delivery-04 -->
+            <path id="route" class="route-glow" d="M 80 325 H 410 Q 420 325 420 315 V 205 Q 420 195 430 195 H 610 Q 620 195 620 185 V 80" fill="none"/>
+            <path class="route-line" d="M 80 325 H 410 Q 420 325 420 315 V 205 Q 420 195 430 195 H 610 Q 620 195 620 185 V 80" fill="none"/>
+
+            <!-- Origin marker -->
+            <g class="marker-origin" transform="translate(80, 325)">
+              <rect x="-8" y="-8" width="16" height="16" rx="2"/>
+              <circle r="3"/>
+            </g>
+
+            <!-- Destination pin -->
+            <g class="marker-dest" transform="translate(620, 80)">
+              <circle class="dest-halo" r="16"/>
+              <circle class="dest-ring" r="10"/>
+              <circle class="dest-core" r="4"/>
+            </g>
+
+            <!-- Robot marker following the route -->
+            <g class="map-robot">
+              <rect x="-9" y="-6" width="14" height="12" rx="2" class="mr-body"/>
+              <polygon points="5,-4 11,0 5,4" class="mr-nose"/>
+              <circle class="mr-halo" r="14"/>
+              <animateMotion dur="6s" repeatCount="indefinite" rotate="auto" begin="0s">
+                <mpath href="#route"/>
+              </animateMotion>
+            </g>
+
+            <!-- Labels -->
+            <text x="80"  y="360" class="map-label" text-anchor="middle">WAREHOUSE</text>
+            <text x="620" y="52"  class="map-label map-label-dest" text-anchor="middle">delivery-04</text>
+            <text x="210" y="105" class="map-label map-label-block">residential-N</text>
+            <text x="520" y="105" class="map-label map-label-block">market-blk</text>
+            <text x="210" y="266" class="map-label map-label-block">central park</text>
+          </svg>
+
+          <!-- HUD overlays -->
+          <div class="sim-hud sim-hud-tl">
+            <span class="hud-badge hud-badge-live"><span class="hud-dot"></span> LIVE SIM</span>
+            <div class="hud-row"><span class="hud-label">state</span> <span class="hud-val" data-hud="state">en route</span></div>
+            <div class="hud-row"><span class="hud-label">target</span> <span class="hud-val">delivery-04</span></div>
+          </div>
+          <div class="sim-hud sim-hud-tr">
+            <div class="hud-row"><span class="hud-label">bat</span> <span class="hud-val" data-hud="battery">87%</span></div>
+            <div class="hud-row"><span class="hud-label">vel</span> <span class="hud-val" data-hud="speed">0.0 m/s</span></div>
+            <div class="hud-row"><span class="hud-label">eta</span> <span class="hud-val" data-hud="eta">00:06</span></div>
+          </div>
+
+          <!-- Speech bubble near destination -->
+          <div class="sim-speech" aria-hidden="true">
+            <span class="sim-speech-text">hi! your delivery :)</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Feature grid -->
-  <section class="features">
-    <div class="section-head">
-      <div class="eyebrow"><span class="dot"></span> One creation environment</div>
-      <h2>Every system a robot needs, in one place.</h2>
-    </div>
-    <div class="feature-grid">
-      <div class="feature-card fc-1">
-        <div class="feature-icon">👀</div>
-        <h3>Perception</h3>
-        <p>Cameras, object tracking, face recognition, audio, ToF, LiDAR and every other sensor.</p>
+  <!-- Feature grid → morphs into robot grid on scroll -->
+  <section class="features-morph" aria-label="Every system a robot needs, in every robot you can imagine">
+    <div class="fm-stage">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot"></span> <span class="fm-eyebrow">One creation environment</span></div>
+        <h2>Every system a robot needs,<br /><span class="fm-swap">in one place.</span></h2>
       </div>
-      <div class="feature-card fc-2">
-        <div class="feature-icon">💛</div>
-        <h3>Behavior &amp; personality</h3>
-        <p>Reactions, state, emotions, decision making and expressive interactions.</p>
-      </div>
-      <div class="feature-card fc-3">
-        <div class="feature-icon">🧠</div>
-        <h3>AI &amp; reasoning</h3>
-        <p>Language models, planning, memory and agentic behavior baked in.</p>
-      </div>
-      <div class="feature-card fc-4">
-        <div class="feature-icon">🕺</div>
-        <h3>Motion &amp; animation</h3>
-        <p>Motors, servos, joints, poses, procedural motion and coordinated animation.</p>
-      </div>
-      <div class="feature-card fc-5">
-        <div class="feature-icon">⚡</div>
-        <h3>Electronics</h3>
-        <p>Microcontrollers, compute modules, motor controllers, displays, audio and power.</p>
-      </div>
-      <div class="feature-card fc-6">
-        <div class="feature-icon">🧩</div>
-        <h3>Hardware abstraction</h3>
-        <p>Describe what your robot should do — not every device underneath it.</p>
-      </div>
-      <div class="feature-card fc-7">
-        <div class="feature-icon">🌀</div>
-        <h3>Simulation</h3>
-        <p>Build and test behaviors virtually before deploying to real hardware.</p>
-      </div>
-      <div class="feature-card fc-8">
-        <div class="feature-icon">🚀</div>
-        <h3>Deployment</h3>
-        <p>Configure, compile and deploy the software and firmware your robot needs.</p>
+      <div class="fm-layers">
+        <!-- Layer A: the 8 building blocks (visible at scroll progress 0) -->
+        <div class="feature-grid fm-layer fm-features">
+          <div class="feature-card fc-1">
+            <div class="feature-icon">👀</div>
+            <h3>Perception</h3>
+            <p>Cameras, object tracking, face recognition, audio, ToF, LiDAR and every other sensor.</p>
+          </div>
+          <div class="feature-card fc-2">
+            <div class="feature-icon">💛</div>
+            <h3>Behavior &amp; personality</h3>
+            <p>Reactions, state, emotions, decision making and expressive interactions.</p>
+          </div>
+          <div class="feature-card fc-3">
+            <div class="feature-icon">🧠</div>
+            <h3>AI &amp; reasoning</h3>
+            <p>Language models, planning, memory and agentic behavior baked in.</p>
+          </div>
+          <div class="feature-card fc-4">
+            <div class="feature-icon">🕺</div>
+            <h3>Motion &amp; animation</h3>
+            <p>Motors, servos, joints, poses, procedural motion and coordinated animation.</p>
+          </div>
+          <div class="feature-card fc-5">
+            <div class="feature-icon">⚡</div>
+            <h3>Electronics</h3>
+            <p>Microcontrollers, compute modules, motor controllers, displays, audio and power.</p>
+          </div>
+          <div class="feature-card fc-6">
+            <div class="feature-icon">🧩</div>
+            <h3>Hardware abstraction</h3>
+            <p>Describe what your robot should do — not every device underneath it.</p>
+          </div>
+          <div class="feature-card fc-7">
+            <div class="feature-icon">🌀</div>
+            <h3>Simulation</h3>
+            <p>Build and test behaviors virtually before deploying to real hardware.</p>
+          </div>
+          <div class="feature-card fc-8">
+            <div class="feature-icon">🚀</div>
+            <h3>Deployment</h3>
+            <p>Configure, compile and deploy the software and firmware your robot needs.</p>
+          </div>
+        </div>
+
+        <!-- Layer B: the same grid layout, but filled with robots (visible at progress 1) -->
+        <div class="feature-grid fm-layer fm-robots" aria-hidden="true">
+          <div class="feature-card robot-card">
+            <img src="assets/robot-play.png" alt="" />
+            <h3>Play</h3>
+          </div>
+          <div class="feature-card robot-card">
+            <img src="assets/robot-microcube.png" alt="" />
+            <h3>Microcube</h3>
+          </div>
+          <div class="feature-card robot-card">
+            <img src="assets/robot-rover.png" alt="" />
+            <h3>Rover</h3>
+          </div>
+          <div class="feature-card robot-card">
+            <img src="assets/robot-hero.png" alt="" />
+            <h3>Companion</h3>
+          </div>
+          <div class="feature-card robot-card">
+            <img src="assets/robot-sprout.jpg" alt="" />
+            <h3>Sprout</h3>
+          </div>
+          <div class="feature-card robot-card robot-card-more">
+            <div class="more-plus">+</div>
+            <h3>your robot</h3>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -161,13 +326,6 @@
         You shouldn't need to understand face detection, servo control, sensor fusion
         and embedded networking just to make a robot notice you and wave.
       </p>
-      <div class="quote-card">
-        <p>
-          “Make my robot recognize me, follow me around the room,
-          and get excited when I come home.”
-        </p>
-        <div class="quote-tag">— you, five minutes from now</div>
-      </div>
     </div>
   </section>
 
@@ -240,5 +398,6 @@
       <p class="footer-copy">© 2026 Game Robotics</p>
     </div>
   </footer>
+  <script src="morph.js" defer></script>
 </body>
 </html>
