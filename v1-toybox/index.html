@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Game Robotics — Build robots people love</title>
-  <meta name="description" content="The creation engine for robots. Build robots people love." />
+  <meta name="description" content="The creation engine for Physical AI. Build robots people love." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
@@ -26,11 +26,15 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero hero-video">
+    <video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg">
+      <source src="assets/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-scrim" aria-hidden="true"></div>
     <div class="hero-copy">
-      <div class="eyebrow">
-        <span class="dot"></span> The creation engine for robots
-      </div>
+      <p class="hero-tag">
+        <span class="dot"></span> The creation engine for <em>Physical&nbsp;AI</em>
+      </p>
       <h1>
         Build robots<br />
         <span class="squiggle-wrap">people <em>love</em>.<svg class="squiggle" viewBox="0 0 220 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 8 Q 30 -2, 60 6 T 120 6 T 218 4" stroke="#3BA7E8" stroke-width="4" stroke-linecap="round"/></svg></span>
@@ -47,14 +51,6 @@
         </button>
       </form>
       <p id="signup-success" class="signup-success" hidden>Thanks! We'll be in touch. 🎉</p>
-    </div>
-    <div class="hero-visual">
-      <div class="blob blob-yellow"></div>
-      <div class="blob blob-blue"></div>
-      <img src="assets/robot-play.png" alt="A cheerful yellow robot with big blue eyes" class="hero-robot" />
-      <div class="sticker sticker-1">hi! 👋</div>
-      <div class="sticker sticker-2">✨ hackable</div>
-      <div class="sticker sticker-3">built with GR</div>
     </div>
   </section>
 
@@ -393,7 +389,7 @@
         <span class="logo-mark">◉</span>
         <span>Game Robotics</span>
       </div>
-      <p class="footer-tag">The creation engine for robotics.</p>
+      <p class="footer-tag">The creation engine for Physical AI.</p>
       <p class="footer-copy">© 2026 Game Robotics</p>
     </div>
   </footer>
