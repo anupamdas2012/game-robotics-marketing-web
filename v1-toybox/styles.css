@@ -2090,6 +2090,11 @@ em { font-style: italic; color: var(--blue); }
     min-height: 74vh;
     min-height: 74svh;
   }
+  /* Shift the video content further to the left on mobile
+     so the interesting frame content isn't hidden by the scrim */
+  .hero-bg {
+    object-position: 25% center;
+  }
   .hero-video .hero-copy {
     margin: 0;
     padding: 0 0.25rem;
