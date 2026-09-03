@@ -89,44 +89,62 @@
   }
 
   let started = false;
+  let hudStarted = false;
+  const PHASES = ['is-typed', 'is-live', 'is-simulating', 'is-mech', 'is-editing', 'is-streaming'];
 
   async function type() {
     if (started) return;
     started = true;
-    if (statusText) statusText.textContent = 'compiling…';
-    for (let i = 0; i < fullText.length; i++) {
-      typedEl.textContent = fullText.slice(0, i + 1);
-      // Slight jitter + longer pause on punctuation for natural feel
-      const ch = fullText[i];
-      let delay = 28 + Math.random() * 30;
-      if (ch === ',' || ch === '.') delay += 180;
-      await new Promise((r) => setTimeout(r, delay));
+
+    // Runs forever — one full workspace cycle per iteration.
+    while (true) {
+      // Reset UI to the "intent" starting state.
+      typedEl.textContent = '';
+      PHASES.forEach((c) => card.classList.remove(c));
+      if (statusText) statusText.textContent = 'awaiting input…';
+      await new Promise((r) => setTimeout(r, 900));
+
+      if (statusText) statusText.textContent = 'compiling…';
+      for (let i = 0; i < fullText.length; i++) {
+        typedEl.textContent = fullText.slice(0, i + 1);
+        // Slight jitter + longer pause on punctuation for natural feel
+        const ch = fullText[i];
+        let delay = 28 + Math.random() * 30;
+        if (ch === ',' || ch === '.') delay += 180;
+        await new Promise((r) => setTimeout(r, delay));
+      }
+      card.classList.add('is-typed');
+      await new Promise((r) => setTimeout(r, 400));
+      if (statusText) statusText.textContent = 'compiled → graph';
+      card.classList.add('is-live');
+
+      // After the blueprint is drawn (nodes ~800ms + wires ~1600ms), transition to sim.
+      await new Promise((r) => setTimeout(r, 2600));
+      if (statusText) statusText.textContent = 'running simulation';
+      card.classList.add('is-simulating');
+      if (!hudStarted) {
+        startHudLoop(card);
+        hudStarted = true;
+      }
+
+      // After the sim has looped a few times, reveal the mechanical design view.
+      await new Promise((r) => setTimeout(r, 4500));
+      if (statusText) statusText.textContent = 'inspecting mechanical';
+      card.classList.add('is-mech');
+
+      // After the CAD view sits for a beat, flip to the PCB review.
+      await new Promise((r) => setTimeout(r, 4500));
+      if (statusText) statusText.textContent = 'inspecting hardware';
+      card.classList.add('is-editing');
+
+      // After the PCB traces run, flip to live telemetry stream.
+      await new Promise((r) => setTimeout(r, 5200));
+      if (statusText) statusText.textContent = 'streaming telemetry';
+      card.classList.add('is-streaming');
+
+      // Sit on telemetry for a moment, then loop back to intent.
+      await new Promise((r) => setTimeout(r, 6000));
     }
-    card.classList.add('is-typed');
-    await new Promise((r) => setTimeout(r, 400));
-    if (statusText) statusText.textContent = 'compiled → graph';
-    card.classList.add('is-live');
-
-    // After the blueprint is drawn (nodes ~800ms + wires ~1600ms), transition to sim.
-    await new Promise((r) => setTimeout(r, 2600));
-    if (statusText) statusText.textContent = 'running simulation';
-    card.classList.add('is-simulating');
-    startHudLoop(card);
-
-    // After the sim has looped a few times, reveal the mechanical design view.
-    await new Promise((r) => setTimeout(r, 4500));
-    if (statusText) statusText.textContent = 'inspecting mechanical';
-    card.classList.add('is-mech');
-
-    // After the CAD view sits for a beat, flip to the PCB review.
-    await new Promise((r) => setTimeout(r, 4500));
-    if (statusText) statusText.textContent = 'inspecting hardware';
-    card.classList.add('is-editing');
-
-    // After the PCB traces run, flip to live telemetry stream.
-    await new Promise((r) => setTimeout(r, 5200));
-    if (statusText) statusText.textContent = 'streaming telemetry';
-    card.classList.add('is-streaming');
   }
 
   // Fake HUD telemetry: cycles state + speed + battery + ETA in a natural way
