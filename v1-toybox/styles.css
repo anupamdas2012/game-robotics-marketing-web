@@ -256,7 +256,7 @@ em { font-style: italic; color: var(--blue); }
 .signup .btn { border-width: 0; padding: 0.75em 1.3em; }
 .signup .btn:hover { transform: translate(-1px, -1px); box-shadow: 2px 2px 0 var(--ink); }
 
-.signup-success {
+.signup-success:not([hidden]) {
   margin-top: 1rem;
   font-weight: 600;
   color: var(--ink);
@@ -266,6 +266,7 @@ em { font-style: italic; color: var(--blue); }
   display: inline-block;
   border: 2px solid var(--ink);
 }
+[hidden] { display: none !important; }
 .tiny-print { font-size: 0.85rem; color: var(--ink-2); margin-top: 0.75rem; }
 
 /* Hero visual */
@@ -2271,7 +2272,15 @@ em { font-style: italic; color: var(--blue); }
     padding: 0 0.25rem;
     max-width: 100%;
   }
-  .hero-video h1 { font-size: clamp(2.4rem, 10vw, 3rem); line-height: 1.02; margin-bottom: 1.1rem; }
+  .hero-video h1 {
+    font-size: clamp(1.6rem, 6.8vw, 2.2rem);
+    line-height: 1.05;
+    margin-bottom: 1.1rem;
+    letter-spacing: -0.025em;
+  }
+  /* Keep "for" + the italic phrase glued together so they don't
+     end up on separate lines */
+  .hero-video h1 .squiggle-wrap { white-space: nowrap; }
   .hero-video .lede { font-size: 1rem; margin-bottom: 1.5rem; }
   .hero-tag {
     font-size: 0.82rem;
@@ -2422,7 +2431,12 @@ em { font-style: italic; color: var(--blue); }
   /* Vision + analogy */
   .vision { padding: 0 1.25rem; }
   .vision h2 { font-size: clamp(1.9rem, 7vw, 2.4rem); }
-  .analogy h2 { font-size: clamp(1.9rem, 7vw, 2.4rem); }
+  .analogy h2 {
+    font-size: clamp(1.4rem, 5.4vw, 1.85rem);
+    line-height: 1.2;
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
 
   /* Final CTA */
   .cta { padding: 4rem 1.25rem; }
