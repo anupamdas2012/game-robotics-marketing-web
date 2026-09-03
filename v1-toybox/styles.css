@@ -1852,6 +1852,115 @@ em { font-style: italic; color: var(--blue); }
   color: var(--ink-2);
 }
 
+/* -------- Community marketplace -------- */
+.marketplace {
+  max-width: var(--max);
+  margin: 6rem auto;
+  padding: 0 1.5rem;
+}
+.marketplace .section-head h2 em { color: var(--blue); font-style: italic; }
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.market-card {
+  background: white;
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  padding: 0.9rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.market-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 5px 5px 0 var(--ink);
+}
+.m-icon {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--yellow-soft);
+  border: 2px solid var(--ink);
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+}
+.m-behavior .m-icon { background: var(--pink); }
+.m-policy .m-icon { background: var(--blue-soft); }
+.m-integration .m-icon { background: var(--mint); }
+.m-actuator .m-icon { background: var(--yellow); }
+.m-planner .m-icon { background: var(--yellow-soft); }
+.m-personality .m-icon { background: var(--pink); }
+.m-body {
+  flex: 1;
+  min-width: 0;
+}
+.m-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.m-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--ink-2);
+  margin-top: 0.15rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.m-type { color: var(--blue); font-weight: 600; }
+.m-author { color: var(--ink-2); }
+.m-stat {
+  flex: 0 0 auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-2);
+  background: var(--bg-2);
+  padding: 0.3em 0.55em;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+}
+.m-stat::after {
+  content: ' ↓';
+  color: var(--ink-2);
+  opacity: 0.5;
+}
+.market-card-more {
+  background: var(--yellow-soft);
+  border-style: dashed;
+  border-width: 3px;
+}
+.m-icon-plus {
+  background: var(--yellow) !important;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+@media (max-width: 900px) {
+  .market-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .market-grid { grid-template-columns: 1fr; }
+  .market-card { padding: 0.75rem 0.85rem; }
+  .m-icon { width: 40px; height: 40px; font-size: 1.2rem; }
+  .m-name { font-size: 0.85rem; }
+  .m-meta { font-size: 0.68rem; }
+  .m-stat { font-size: 0.7rem; padding: 0.25em 0.5em; }
+  .marketplace { margin: 4rem auto; }
+}
+
 /* -------- First robot: launch product spotlight -------- */
 .first-robot {
   max-width: var(--max);
