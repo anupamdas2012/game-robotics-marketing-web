@@ -706,15 +706,7 @@
       </p>
     </div>
 
-    <div class="market-grid">
-      <div class="market-card m-behavior">
-        <div class="m-icon">👀</div>
-        <div class="m-body">
-          <div class="m-name">face-tracking</div>
-          <div class="m-meta"><span class="m-type">behavior</span> · <span class="m-author">@perceptron_labs</span></div>
-        </div>
-        <div class="m-stat">3.4k</div>
-      </div>
+    <div class="market-grid market-featured">
       <div class="market-card m-policy">
         <div class="m-icon">✊</div>
         <div class="m-body">
@@ -723,53 +715,21 @@
         </div>
         <div class="m-stat">2.1k</div>
       </div>
-      <div class="market-card m-integration">
-        <div class="m-icon">🗺️</div>
+      <div class="market-card m-behavior">
+        <div class="m-icon">👀</div>
         <div class="m-body">
-          <div class="m-name">slam-lite</div>
-          <div class="m-meta"><span class="m-type">module</span> · <span class="m-author">@openslam</span></div>
+          <div class="m-name">face-tracking</div>
+          <div class="m-meta"><span class="m-type">behavior</span> · <span class="m-author">@perceptron_labs</span></div>
         </div>
-        <div class="m-stat">5.8k</div>
-      </div>
-      <div class="market-card m-integration">
-        <div class="m-icon">📡</div>
-        <div class="m-body">
-          <div class="m-name">lidar-livox-mid360</div>
-          <div class="m-meta"><span class="m-type">integration</span> · <span class="m-author">@sensor_lab</span></div>
-        </div>
-        <div class="m-stat">1.2k</div>
+        <div class="m-stat">3.4k</div>
       </div>
       <div class="market-card m-actuator">
         <div class="m-icon">🔩</div>
         <div class="m-body">
           <div class="m-name">dynamixel-xm</div>
-          <div class="m-meta"><span class="m-type">actuator</span> · <span class="m-author">@robotis_community</span></div>
+          <div class="m-meta"><span class="m-type">actuator</span> · <span class="m-author">@robotis</span></div>
         </div>
         <div class="m-stat">4.7k</div>
-      </div>
-      <div class="market-card m-policy">
-        <div class="m-icon">🚶</div>
-        <div class="m-body">
-          <div class="m-name">follow-me</div>
-          <div class="m-meta"><span class="m-type">locomotion · policy</span> · <span class="m-author">@wander</span></div>
-        </div>
-        <div class="m-stat">2.9k</div>
-      </div>
-      <div class="market-card m-behavior">
-        <div class="m-icon">🗣️</div>
-        <div class="m-body">
-          <div class="m-name">speech-to-intent</div>
-          <div class="m-meta"><span class="m-type">behavior</span> · <span class="m-author">@voxlab</span></div>
-        </div>
-        <div class="m-stat">6.3k</div>
-      </div>
-      <div class="market-card m-planner">
-        <div class="m-icon">🧭</div>
-        <div class="m-body">
-          <div class="m-name">nav-planner-a*</div>
-          <div class="m-meta"><span class="m-type">planner</span> · <span class="m-author">@pathworks</span></div>
-        </div>
-        <div class="m-stat">3.1k</div>
       </div>
       <div class="market-card m-personality">
         <div class="m-icon">🐾</div>
@@ -779,30 +739,45 @@
         </div>
         <div class="m-stat">1.8k</div>
       </div>
-      <div class="market-card m-policy">
-        <div class="m-icon">🗄️</div>
-        <div class="m-body">
-          <div class="m-name">open-drawer-v2</div>
-          <div class="m-meta"><span class="m-type">policy · learned</span> · <span class="m-author">@manipulate</span></div>
-        </div>
-        <div class="m-stat">942</div>
-      </div>
-      <div class="market-card m-integration">
-        <div class="m-icon">🎛️</div>
-        <div class="m-body">
-          <div class="m-name">sensor-fusion-stack</div>
-          <div class="m-meta"><span class="m-type">stack</span> · <span class="m-author">@perceptron_labs</span></div>
-        </div>
-        <div class="m-stat">2.6k</div>
-      </div>
-      <div class="market-card market-card-more">
-        <div class="m-icon m-icon-plus">+</div>
-        <div class="m-body">
-          <div class="m-name">publish yours</div>
-          <div class="m-meta"><span class="m-type">any capability · any type</span></div>
-        </div>
+    </div>
+
+    <div class="market-trail" aria-label="More capabilities in the library">
+      <div class="market-trail-track">
+        <span class="mini-node">🗺️ slam-lite</span>
+        <span class="mini-node">📡 lidar-livox-mid360</span>
+        <span class="mini-node">🚶 follow-me</span>
+        <span class="mini-node">🗣️ speech-to-intent</span>
+        <span class="mini-node">🧭 nav-planner-a*</span>
+        <span class="mini-node">🗄️ open-drawer</span>
+        <span class="mini-node">🎛️ sensor-fusion</span>
+        <span class="mini-node">📷 rgbd-cam</span>
+        <span class="mini-node">🧲 gripper-parallel</span>
+        <span class="mini-node">🌡️ imu-bno085</span>
+        <span class="mini-node">🎨 emotion-mixer</span>
+        <span class="mini-node">🧠 llm-planner</span>
+        <span class="mini-node">🦾 arm-pilot</span>
+        <span class="mini-node">🎯 aim-and-track</span>
+        <!-- duplicate for seamless loop -->
+        <span class="mini-node" aria-hidden="true">🗺️ slam-lite</span>
+        <span class="mini-node" aria-hidden="true">📡 lidar-livox-mid360</span>
+        <span class="mini-node" aria-hidden="true">🚶 follow-me</span>
+        <span class="mini-node" aria-hidden="true">🗣️ speech-to-intent</span>
+        <span class="mini-node" aria-hidden="true">🧭 nav-planner-a*</span>
+        <span class="mini-node" aria-hidden="true">🗄️ open-drawer</span>
+        <span class="mini-node" aria-hidden="true">🎛️ sensor-fusion</span>
+        <span class="mini-node" aria-hidden="true">📷 rgbd-cam</span>
+        <span class="mini-node" aria-hidden="true">🧲 gripper-parallel</span>
+        <span class="mini-node" aria-hidden="true">🌡️ imu-bno085</span>
+        <span class="mini-node" aria-hidden="true">🎨 emotion-mixer</span>
+        <span class="mini-node" aria-hidden="true">🧠 llm-planner</span>
+        <span class="mini-node" aria-hidden="true">🦾 arm-pilot</span>
+        <span class="mini-node" aria-hidden="true">🎯 aim-and-track</span>
       </div>
     </div>
+
+    <p class="market-count">
+      <strong>1,200+</strong> capabilities and growing — <span class="market-cta-inline">publish yours →</span>
+    </p>
   </section>
 
   <!-- The first robot: LAUNCH PRODUCT spotlight -->

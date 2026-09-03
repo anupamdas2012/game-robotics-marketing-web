@@ -1861,9 +1861,10 @@ em { font-style: italic; color: var(--blue); }
 .marketplace .section-head h2 em { color: var(--blue); font-style: italic; }
 .market-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
+.market-featured { margin-bottom: 1.5rem; }
 .market-card {
   background: white;
   border: 2px solid var(--ink);
@@ -1935,17 +1936,59 @@ em { font-style: italic; color: var(--blue); }
   color: var(--ink-2);
   opacity: 0.5;
 }
-.market-card-more {
-  background: var(--yellow-soft);
-  border-style: dashed;
-  border-width: 3px;
+/* Scrolling marquee of mini node chips */
+.market-trail {
+  overflow: hidden;
+  padding: 0.5rem 0;
+  margin: 0 -1.5rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, black 8%, black 92%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, black 8%, black 92%, transparent 100%);
 }
-.m-icon-plus {
-  background: var(--yellow) !important;
+.market-trail-track {
+  display: flex;
+  gap: 0.6rem;
+  width: max-content;
+  animation: market-scroll 45s linear infinite;
+}
+@keyframes market-scroll {
+  to { transform: translateX(-50%); }
+}
+.mini-node {
+  flex: 0 0 auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 0.82rem;
+  color: var(--ink);
+  background: white;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 0.4em 0.9em;
+  white-space: nowrap;
+}
+.mini-node:nth-child(3n)   { background: var(--yellow-soft); }
+.mini-node:nth-child(3n+1) { background: var(--blue-soft); }
+.mini-node:nth-child(3n+2) { background: var(--mint); }
+
+/* Count / CTA line under the trail */
+.market-count {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--ink-2);
+}
+.market-count strong {
+  color: var(--ink);
   font-family: 'Fraunces', serif;
   font-weight: 900;
-  font-size: 1.7rem;
-  line-height: 1;
+  font-size: 1.2rem;
+  margin-right: 0.15em;
+}
+.market-cta-inline {
+  color: var(--blue);
+  font-weight: 700;
+  border-bottom: 2px solid var(--blue);
+  padding-bottom: 1px;
 }
 
 @media (max-width: 900px) {
@@ -1958,7 +2001,10 @@ em { font-style: italic; color: var(--blue); }
   .m-name { font-size: 0.85rem; }
   .m-meta { font-size: 0.68rem; }
   .m-stat { font-size: 0.7rem; padding: 0.25em 0.5em; }
-  .marketplace { margin: 4rem auto; }
+  .marketplace { margin: 4rem auto; padding: 0 1rem; }
+  .market-trail { margin: 0 -1rem; }
+  .mini-node { font-size: 0.72rem; padding: 0.35em 0.75em; }
+  .market-count { font-size: 0.8rem; }
 }
 
 /* -------- First robot: launch product spotlight -------- */
