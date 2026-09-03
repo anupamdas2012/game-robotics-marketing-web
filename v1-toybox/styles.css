@@ -144,7 +144,16 @@ em { font-style: italic; color: var(--blue); }
   margin: 0 auto 0 max(1.5rem, calc((100vw - var(--max)) / 2 + 1.5rem));
   color: white;
 }
-.hero-video h1 { color: white; }
+.hero-video h1 {
+  color: white;
+  font-size: clamp(1.9rem, 4.2vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.hero-video h1 em {
+  display: inline-block;
+  white-space: nowrap;
+}
 .hero-video em { color: var(--yellow); font-style: italic; }
 .hero-video .lede { color: rgba(255,255,255,0.85); }
 .hero-video .eyebrow {
@@ -1810,7 +1819,14 @@ em { font-style: italic; color: var(--blue); }
   filter: blur(20px);
 }
 .analogy-inner { max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
-.analogy h2 { color: white; margin-bottom: 1.2rem; }
+.analogy h2 {
+  color: white;
+  margin-bottom: 1.2rem;
+  font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+  text-wrap: balance;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
 .analogy em { color: var(--yellow); }
 .quote-card {
   margin-top: 3rem;
