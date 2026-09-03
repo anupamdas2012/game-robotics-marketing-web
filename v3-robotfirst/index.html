@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lex Jr. — A companion robot by Game Robotics</title>
+  <meta name="description" content="Meet Lex Jr. A companion robot that recognizes you, reacts to your world, and grows with you. Built with Game Robotics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="variant-b">
+  <!-- Nav -->
+  <header class="nav">
+    <a href="#" class="logo">
+      <span class="logo-mark">◉</span>
+      <span>Lex Jr.</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#meet">Meet Lex</a>
+      <a href="#inside">Inside</a>
+      <a href="#engine">The engine</a>
+      <a href="#signup" class="btn btn-sm btn-primary">Get early access</a>
+    </nav>
+  </header>
+
+  <!-- Hero: the robot IS the pitch -->
+  <section class="hero-robot" id="top">
+    <div class="hr-copy">
+      <div class="eyebrow"><span class="dot"></span> Gen 01 · shipping soon</div>
+      <h1>
+        Meet <em>Lex Jr.</em><br />
+        A robot with a mind of his own.
+      </h1>
+      <p class="lede">
+        He recognizes you. He reads the room. He remembers what matters.
+        Lex Jr. is expressive, intelligent, hackable — and genuinely fun to live with.
+      </p>
+      <form class="signup" onsubmit="event.preventDefault(); document.getElementById('signup-success').hidden = false;">
+        <input type="email" placeholder="you@makestuff.com" aria-label="Email address" required />
+        <button type="submit" class="btn btn-primary">
+          Reserve yours <span aria-hidden="true">→</span>
+        </button>
+      </form>
+      <p id="signup-success" class="signup-success" hidden>You're on the list. Talk soon 🌱</p>
+      <p class="tiny-print">Limited spots for the first drop. No spam — just launch news.</p>
+    </div>
+
+    <div class="hr-stage">
+      <div class="hr-halo"></div>
+      <div class="hr-ring hr-ring-1"></div>
+      <div class="hr-ring hr-ring-2"></div>
+      <img src="assets/lex-jr.png" alt="Lex Jr., a friendly companion robot with big eyes" class="hr-robot-img" />
+      <div class="hr-chip hr-chip-a">👋 hi there</div>
+      <div class="hr-chip hr-chip-b">✧ recognizes you</div>
+      <div class="hr-chip hr-chip-c">✿ on-device brain</div>
+      <div class="hr-plate">
+        <span class="hr-plate-brand">GAME ROBOTICS</span>
+        <span class="hr-plate-code">LEX·JR · GEN·01</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee: personality traits -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>curious</span><span>◉</span>
+      <span>expressive</span><span>◉</span>
+      <span>hackable</span><span>◉</span>
+      <span>remembers you</span><span>◉</span>
+      <span>reads the room</span><span>◉</span>
+      <span>never boring</span><span>◉</span>
+      <span>curious</span><span>◉</span>
+      <span>expressive</span><span>◉</span>
+      <span>hackable</span><span>◉</span>
+      <span>remembers you</span><span>◉</span>
+      <span>reads the room</span><span>◉</span>
+      <span>never boring</span><span>◉</span>
+    </div>
+  </div>
+
+  <!-- Meet Lex: personality vignettes -->
+  <section class="meet" id="meet">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span> A day with Lex</div>
+      <h2>He's not a gadget. <em>He's a character</em>.</h2>
+      <p class="section-lede">
+        Lex Jr. doesn't just respond to commands — he notices, remembers, and reacts.
+        Little moments that make him feel alive.
+      </p>
+    </div>
+
+    <div class="vignettes">
+      <article class="vignette">
+        <div class="vg-icon">👋</div>
+        <h3>He knows your face.</h3>
+        <p>
+          Walk in the door and Lex looks up, tracks you, and lights up with a specific
+          greeting — because he actually recognizes you, not just "a human."
+        </p>
+      </article>
+      <article class="vignette">
+        <div class="vg-icon">🎭</div>
+        <h3>He mirrors your mood.</h3>
+        <p>
+          Smile and he brightens. Look down and he gets quieter, softer.
+          Expression isn't a canned animation — it's a live reaction to you.
+        </p>
+      </article>
+      <article class="vignette">
+        <div class="vg-icon">🧠</div>
+        <h3>He remembers what matters.</h3>
+        <p>
+          Names, routines, the songs you liked, the plant he watched you water.
+          Memory that persists, so tomorrow's Lex knows more than today's.
+        </p>
+      </article>
+      <article class="vignette">
+        <div class="vg-icon">🐾</div>
+        <h3>He wanders. He's curious.</h3>
+        <p>
+          Lex explores on his own. He'll come find you, poke at something new,
+          and get excited when the world changes. Presence, not just presence-detection.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Inside Lex: the "how" (spec-light, tease of the engine) -->
+  <section class="inside" id="inside">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span> Under the hood</div>
+      <h2>Everything you'd expect. <em>Nothing you'd have to build</em>.</h2>
+      <p class="section-lede">
+        Lex Jr. ships with a full stack of perception, expression, motion and on-device intelligence.
+        It's not magic. It's just usually really hard.
+      </p>
+    </div>
+
+    <div class="inside-grid">
+      <div class="inside-card">
+        <div class="ic-emoji">👀</div>
+        <h3>Perception</h3>
+        <p>RGB + depth cameras, face + object recognition, spatial audio, on-device.</p>
+      </div>
+      <div class="inside-card">
+        <div class="ic-emoji">💛</div>
+        <h3>Personality</h3>
+        <p>Live emotional state, expressive eyes and voice, reactions tuned to context.</p>
+      </div>
+      <div class="inside-card">
+        <div class="ic-emoji">🧠</div>
+        <h3>On-device AI</h3>
+        <p>Local language + vision models. Private by default, memory that persists.</p>
+      </div>
+      <div class="inside-card">
+        <div class="ic-emoji">🤖</div>
+        <h3>Motion</h3>
+        <p>Smooth, coordinated servos. Wanders, tracks, orients — never robotic-jerky.</p>
+      </div>
+      <div class="inside-card">
+        <div class="ic-emoji">🔌</div>
+        <h3>Hackable</h3>
+        <p>USB-C, GPIO, an open SDK. Add sensors, swap behaviors, remap everything.</p>
+      </div>
+      <div class="inside-card">
+        <div class="ic-emoji">📡</div>
+        <h3>Always improving</h3>
+        <p>Over-the-air updates. New behaviors, new tricks, new personality drops.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The reveal: platform enters as the enabler -->
+  <section class="reveal" id="engine">
+    <div class="reveal-inner">
+      <div class="reveal-copy">
+        <div class="eyebrow eyebrow-invert"><span class="dot"></span> The engine behind him</div>
+        <h2>
+          Every look, every reaction, every capability —<br />
+          <em>we built Lex with Game Robotics</em>.
+        </h2>
+        <p>
+          Game Robotics is an AI-native creation engine for robots.
+          Perception, behavior, AI, motion, electronics, simulation, deployment —
+          all in one place, so building an intelligent machine feels like building a game.
+        </p>
+        <p class="reveal-kicker">
+          Lex Jr. is the first robot. The engine that made him is what comes next.
+        </p>
+        <ul class="pill-list pill-list-invert">
+          <li>Open the hood on Lex</li>
+          <li>Add sensors + capabilities</li>
+          <li>Build entirely new robots</li>
+          <li>Share what you make</li>
+        </ul>
+      </div>
+      <div class="reveal-visual">
+        <div class="reveal-glow"></div>
+        <img src="assets/lex-jr.png" alt="Lex Jr., the first robot built with Game Robotics" />
+        <div class="reveal-tag">built with GR</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community: extend Lex or build your own -->
+  <section class="marketplace" id="community">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span> The community library</div>
+      <h2>Extend Lex. Or <em>build your own</em>.</h2>
+      <p class="section-lede">
+        Every behavior, sensor, and personality Lex ships with is also a shareable
+        capability. Drop new ones onto him — or into a robot of your own design.
+      </p>
+    </div>
+
+    <div class="market-grid market-featured">
+      <div class="market-card m-behavior">
+        <div class="m-icon">👀</div>
+        <div class="m-body">
+          <div class="m-name">face-tracking</div>
+          <div class="m-meta"><span class="m-type">behavior</span> · <span class="m-author">@perceptron_labs</span></div>
+        </div>
+        <div class="m-stat">3.4k</div>
+      </div>
+      <div class="market-card m-personality">
+        <div class="m-icon">🐾</div>
+        <div class="m-body">
+          <div class="m-name">curious-personality</div>
+          <div class="m-meta"><span class="m-type">personality</span> · <span class="m-author">@makers_guild</span></div>
+        </div>
+        <div class="m-stat">1.8k</div>
+      </div>
+      <div class="market-card m-policy">
+        <div class="m-icon">🎭</div>
+        <div class="m-body">
+          <div class="m-name">mood-mirror</div>
+          <div class="m-meta"><span class="m-type">policy · learned</span> · <span class="m-author">@haptic</span></div>
+        </div>
+        <div class="m-stat">2.1k</div>
+      </div>
+      <div class="market-card m-actuator">
+        <div class="m-icon">🦾</div>
+        <div class="m-body">
+          <div class="m-name">arm-add-on</div>
+          <div class="m-meta"><span class="m-type">hardware</span> · <span class="m-author">@robotis</span></div>
+        </div>
+        <div class="m-stat">4.7k</div>
+      </div>
+    </div>
+
+    <div class="market-trail" aria-label="More capabilities in the library">
+      <div class="market-trail-track">
+        <span class="mini-node">🗺️ slam-lite</span>
+        <span class="mini-node">📡 lidar-livox-mid360</span>
+        <span class="mini-node">🚶 follow-me</span>
+        <span class="mini-node">🗣️ speech-to-intent</span>
+        <span class="mini-node">🧭 nav-planner-a*</span>
+        <span class="mini-node">🗄️ open-drawer</span>
+        <span class="mini-node">🎛️ sensor-fusion</span>
+        <span class="mini-node">📷 rgbd-cam</span>
+        <span class="mini-node">🧲 gripper-parallel</span>
+        <span class="mini-node">🌡️ imu-bno085</span>
+        <span class="mini-node">🎨 emotion-mixer</span>
+        <span class="mini-node">🧠 llm-planner</span>
+        <span class="mini-node">🦾 arm-pilot</span>
+        <span class="mini-node">🎯 aim-and-track</span>
+        <span class="mini-node" aria-hidden="true">🗺️ slam-lite</span>
+        <span class="mini-node" aria-hidden="true">📡 lidar-livox-mid360</span>
+        <span class="mini-node" aria-hidden="true">🚶 follow-me</span>
+        <span class="mini-node" aria-hidden="true">🗣️ speech-to-intent</span>
+        <span class="mini-node" aria-hidden="true">🧭 nav-planner-a*</span>
+        <span class="mini-node" aria-hidden="true">🗄️ open-drawer</span>
+        <span class="mini-node" aria-hidden="true">🎛️ sensor-fusion</span>
+        <span class="mini-node" aria-hidden="true">📷 rgbd-cam</span>
+        <span class="mini-node" aria-hidden="true">🧲 gripper-parallel</span>
+        <span class="mini-node" aria-hidden="true">🌡️ imu-bno085</span>
+        <span class="mini-node" aria-hidden="true">🎨 emotion-mixer</span>
+        <span class="mini-node" aria-hidden="true">🧠 llm-planner</span>
+        <span class="mini-node" aria-hidden="true">🦾 arm-pilot</span>
+        <span class="mini-node" aria-hidden="true">🎯 aim-and-track</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision (small, robot-framed) -->
+  <section class="vision" id="vision">
+    <div class="eyebrow"><span class="dot"></span> The bigger picture</div>
+    <h2>It starts with a robot. It scales with an engine.</h2>
+    <p>
+      AI is going to cause an explosion in physical computing. Lex Jr. is the first
+      thing we're building — a robot people actually want. The engine underneath is
+      what makes the next thousand possible.
+    </p>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta" id="signup">
+    <div class="cta-inner">
+      <h2>Bring Lex Jr. home.</h2>
+      <p>Early access is opening soon. Reserve your spot in the first drop.</p>
+      <form class="signup signup-lg" onsubmit="event.preventDefault(); document.getElementById('signup-success-2').hidden = false;">
+        <input type="email" placeholder="you@makestuff.com" aria-label="Email address" required />
+        <button type="submit" class="btn btn-primary btn-lg">
+          Reserve yours <span aria-hidden="true">→</span>
+        </button>
+      </form>
+      <p id="signup-success-2" class="signup-success" hidden>You're on the list. Talk soon 🌱</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="logo">
+        <span class="logo-mark">◉</span>
+        <span>Game Robotics</span>
+      </div>
+      <p class="footer-tag">Lex Jr. — the first robot built with Game Robotics.</p>
+      <p class="footer-copy">© 2026 Game Robotics</p>
+    </div>
+  </footer>
+</body>
+</html>

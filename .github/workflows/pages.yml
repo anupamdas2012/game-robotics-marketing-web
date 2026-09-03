@@ -23,8 +23,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - name: Assemble A/B dist
+        run: |
+          mkdir -p dist
+          cp -R v1-toybox/. dist/
+          mkdir -p dist/b
+          cp -R v3-robotfirst/. dist/b/
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: ./v1-toybox
+          path: ./dist
       - id: deployment
         uses: actions/deploy-pages@v4
