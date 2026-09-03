@@ -83,8 +83,8 @@
 
   if (prefersReduced) {
     typedEl.textContent = fullText;
-    card.classList.add('is-typed', 'is-live', 'is-simulating');
-    if (statusText) statusText.textContent = 'running simulation';
+    card.classList.add('is-typed', 'is-live', 'is-simulating', 'is-mech', 'is-editing', 'is-streaming');
+    if (statusText) statusText.textContent = 'streaming telemetry';
     return;
   }
 
@@ -112,6 +112,21 @@
     if (statusText) statusText.textContent = 'running simulation';
     card.classList.add('is-simulating');
     startHudLoop(card);
+
+    // After the sim has looped a few times, reveal the mechanical design view.
+    await new Promise((r) => setTimeout(r, 4500));
+    if (statusText) statusText.textContent = 'inspecting mechanical';
+    card.classList.add('is-mech');
+
+    // After the CAD view sits for a beat, flip to the PCB review.
+    await new Promise((r) => setTimeout(r, 4500));
+    if (statusText) statusText.textContent = 'inspecting hardware';
+    card.classList.add('is-editing');
+
+    // After the PCB traces run, flip to live telemetry stream.
+    await new Promise((r) => setTimeout(r, 5200));
+    if (statusText) statusText.textContent = 'streaming telemetry';
+    card.classList.add('is-streaming');
   }
 
   // Fake HUD telemetry: cycles state + speed + battery + ETA in a natural way
@@ -156,16 +171,24 @@
     requestAnimationFrame(tick);
   }
 
+  // Only start typing once the entire card is on screen.
+  // Card starts small (all panels collapsed) so this fires as expected;
+  // if the card is ever taller than the viewport, we fall back to a
+  // bottom-visible check driven off the same intersection callbacks.
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
-        if (e.isIntersecting) {
+        const rect = e.boundingClientRect;
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        const fullyVisible = e.intersectionRatio >= 0.99;
+        const bottomVisible = rect.bottom <= vh && rect.top >= 0;
+        if (fullyVisible || bottomVisible) {
           type();
           io.disconnect();
         }
       });
     },
-    { threshold: 0.35 }
+    { threshold: [0.5, 0.75, 0.9, 1] }
   );
   io.observe(card);
 })();
