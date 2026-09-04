@@ -2501,11 +2501,12 @@ body.variant-b { background: var(--cream); }
 .hero-robot h1 {
   font-family: 'Fraunces', serif;
   font-weight: 900;
-  font-size: clamp(2.4rem, 5.2vw, 4rem);
-  line-height: 1.02;
+  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+  line-height: 1.05;
   letter-spacing: -0.025em;
   color: var(--ink);
   margin: 0.6rem 0 1.25rem;
+  text-wrap: balance;
 }
 .hero-robot h1 em {
   font-style: italic;
