@@ -19,8 +19,8 @@
     </a>
     <nav class="nav-links">
       <a href="#meet">Meet Lex</a>
-      <a href="#inside">Inside</a>
       <a href="#engine">The engine</a>
+      <a href="#choose">Get one</a>
       <a href="#signup" class="btn btn-sm btn-primary">Reserve yours</a>
     </nav>
   </header>
@@ -61,105 +61,50 @@
     <div class="section-head">
       <div class="eyebrow"><span class="dot"></span> A day with Lex</div>
       <h2>He's not a robot. <em>He's a character</em>.</h2>
-      <p class="section-lede">
-        Lex Jr. doesn't just respond to commands — he notices, remembers, and reacts.
-        Little moments that make him feel alive.
-      </p>
     </div>
 
     <div class="vignettes">
       <article class="vignette">
         <div class="vg-icon">👋</div>
         <h3>He knows your face.</h3>
-        <p>
-          Walk in the door and Lex looks up, tracks you, and lights up with a specific
-          greeting — because he actually recognizes you, not just "a human."
-        </p>
+        <p>Recognizes you the moment you walk in.</p>
       </article>
       <article class="vignette">
         <div class="vg-icon">🎭</div>
         <h3>He mirrors your mood.</h3>
-        <p>
-          Smile and he brightens. Look down and he gets quieter, softer.
-          Expression isn't a canned animation — it's a live reaction to you.
-        </p>
+        <p>Smile and he brightens. Look down and he softens.</p>
       </article>
       <article class="vignette">
         <div class="vg-icon">🧠</div>
         <h3>He remembers what matters.</h3>
-        <p>
-          Names, routines, the songs you liked, the plant he watched you water.
-          Memory that persists, so tomorrow's Lex knows more than today's.
-        </p>
+        <p>Names, routines, favorites — memory that persists.</p>
       </article>
       <article class="vignette">
         <div class="vg-icon">🐾</div>
-        <h3>He wanders. He's curious.</h3>
-        <p>
-          Lex explores on his own. He'll come find you, poke at something new,
-          and get excited when the world changes. Presence, not just presence-detection.
-        </p>
+        <h3>He's curious.</h3>
+        <p>Explores on his own. Notices when the world changes.</p>
       </article>
     </div>
   </section>
 
-  <!-- Inside Lex: the "how" (spec-light, tease of the engine) -->
-  <section class="inside" id="inside">
-    <div class="section-head">
-      <div class="eyebrow"><span class="dot"></span> Under the hood</div>
-      <h2>Look inside. <em>Then start building</em>.</h2>
-      <p class="section-lede">
-        Everything Lex ships with is open. Add sensors. Swap behaviors.
-        Rewire how he thinks. Make him do something no one else has.
-      </p>
-    </div>
-
-    <div class="inside-grid">
-      <div class="inside-card">
-        <div class="ic-emoji">👀</div>
-        <h3>Perception</h3>
-        <p>RGB + depth cameras, face + object recognition, spatial audio, on-device.</p>
-      </div>
-      <div class="inside-card">
-        <div class="ic-emoji">💛</div>
-        <h3>Personality</h3>
-        <p>Live emotional state, expressive eyes and voice, reactions tuned to context.</p>
-      </div>
-      <div class="inside-card">
-        <div class="ic-emoji">🧠</div>
-        <h3>On-device AI</h3>
-        <p>Local language + vision models. Private by default, memory that persists.</p>
-      </div>
-      <div class="inside-card">
-        <div class="ic-emoji">🤖</div>
-        <h3>Motion</h3>
-        <p>Smooth, coordinated servos. Wanders, tracks, orients — never robotic-jerky.</p>
-      </div>
-      <div class="inside-card">
-        <div class="ic-emoji">🔌</div>
-        <h3>Hackable</h3>
-        <p>USB-C, GPIO, an open SDK. Add sensors, swap behaviors, remap everything.</p>
-      </div>
-      <div class="inside-card">
-        <div class="ic-emoji">📡</div>
-        <h3>Always improving</h3>
-        <p>Over-the-air updates. New behaviors, new tricks, new personality drops.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- The reveal: platform enters as the enabler -->
+  <!-- The reveal: platform enters as the enabler + the whole stack -->
   <section class="reveal" id="engine">
     <div class="reveal-inner">
       <div class="reveal-copy">
         <div class="eyebrow"><span class="dot"></span> The engine behind him</div>
         <h2>Built with the <em>Game Robotics</em> platform.</h2>
         <p>
-          Game Robotics is an AI-native creation engine for robots.
-          Perception, behavior, AI, motion, electronics, simulation, deployment —
-          all in one place, so building a robot flows: sketch it, iterate on it,
-          and watch it come alive.
+          One creation environment for every system a robot needs — so building
+          a robot flows: sketch it, iterate on it, and watch it come alive.
         </p>
+        <ul class="stack-chips" aria-label="Everything in Lex's stack">
+          <li><span aria-hidden="true">👀</span> perception</li>
+          <li><span aria-hidden="true">💛</span> personality</li>
+          <li><span aria-hidden="true">🧠</span> on-device AI</li>
+          <li><span aria-hidden="true">🤖</span> motion</li>
+          <li><span aria-hidden="true">🔌</span> hackable hardware</li>
+          <li><span aria-hidden="true">📡</span> OTA updates</li>
+        </ul>
       </div>
       <div class="reveal-visual">
         <!-- Faded node-editor hint behind Lex: a peek at the platform UI -->
@@ -350,6 +295,44 @@
         <span class="mini-node" aria-hidden="true">🦾 arm-pilot</span>
         <span class="mini-node" aria-hidden="true">🎯 aim-and-track</span>
       </div>
+    </div>
+  </section>
+
+  <!-- Kit vs pre-built: two ways in -->
+  <section class="choose" id="choose">
+    <div class="section-head">
+      <div class="eyebrow"><span class="dot"></span> Two ways in</div>
+      <h2>Kit or <em>pre-built</em>.</h2>
+    </div>
+
+    <div class="choose-grid">
+      <article class="choose-card">
+        <div class="cc-img">
+          <picture>
+            <source type="image/webp" srcset="assets/lex-kit.webp" />
+            <img src="assets/lex-kit.jpg" alt="Lex Jr. kit — assembled by hand with tools and parts on a workbench" />
+          </picture>
+        </div>
+        <div class="cc-body">
+          <div class="cc-tag cc-tag-kit">Kit</div>
+          <h3>Build him yourself.</h3>
+          <p>For tinkerers. Every screw, every board, every part in your hands.</p>
+        </div>
+      </article>
+
+      <article class="choose-card">
+        <div class="cc-img cc-img-photo">
+          <picture>
+            <source type="image/webp" srcset="assets/lex-jr-poster.webp" />
+            <img src="assets/lex-jr-poster.jpg" alt="Lex Jr. — fully assembled and ready to run" />
+          </picture>
+        </div>
+        <div class="cc-body">
+          <div class="cc-tag cc-tag-built">Pre-built</div>
+          <h3>Skip to the software.</h3>
+          <p>For creators. Straight to behaviors, personalities, and AI.</p>
+        </div>
+      </article>
     </div>
   </section>
 
