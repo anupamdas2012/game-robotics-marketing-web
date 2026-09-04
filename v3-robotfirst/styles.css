@@ -2922,16 +2922,19 @@ body.variant-b { background: var(--cream); }
   padding: 1.5rem 1.75rem 1.6rem;
 }
 .cc-tag {
-  display: inline-block;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
   font-family: 'JetBrains Mono', 'Menlo', monospace;
-  font-size: 0.72rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 0.3em 0.7em;
-  border: 2px solid var(--ink);
+  padding: 0.5em 1em;
+  border: 2.5px solid var(--ink);
   border-radius: 999px;
-  margin-bottom: 0.9rem;
+  box-shadow: 3px 3px 0 var(--ink);
 }
 .cc-tag-kit { background: var(--yellow); color: var(--ink); }
 .cc-tag-built { background: var(--blue-soft); color: var(--ink); }
@@ -2957,5 +2960,12 @@ body.variant-b { background: var(--cream); }
   .choose-card:hover { box-shadow: 7px 7px 0 var(--ink); }
   .cc-body { padding: 1.25rem 1.35rem 1.25rem; }
   .choose-card h3 { font-size: 1.35rem; }
+  .cc-tag {
+    top: 0.7rem;
+    left: 0.7rem;
+    font-size: 0.9rem;
+    padding: 0.4em 0.85em;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
   .stack-chips li { font-size: 0.75rem; padding: 0.35em 0.7em; }
 }
