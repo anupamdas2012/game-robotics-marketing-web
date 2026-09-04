@@ -2556,6 +2556,17 @@ body.variant-b { background: var(--cream); }
   filter: drop-shadow(6px 10px 0 rgba(30, 30, 40, 0.85));
   animation: hr-bob 5s ease-in-out infinite;
 }
+.hr-robot-vid {
+  width: 78%;
+  max-width: 460px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 28px;
+  border: 3px solid var(--ink);
+  box-shadow: 8px 10px 0 var(--ink);
+  background: #efefef;
+}
 @keyframes hr-bob {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-8px); }
@@ -2803,7 +2814,9 @@ body.variant-b { background: var(--cream); }
     aspect-ratio: 1 / 0.85;
     min-height: 320px;
   }
-  .hr-robot-img { width: 70%; }
+  .hr-robot-img,
+  .hr-robot-vid { width: 82%; max-width: 340px; }
+  .hr-robot-vid { border-radius: 22px; box-shadow: 6px 8px 0 var(--ink); }
   .hr-chip { font-size: 0.68rem; padding: 0.4em 0.7em; }
   .hr-chip-a { top: 4%; left: 2%; }
   .hr-chip-b { top: 42%; right: 0; }
