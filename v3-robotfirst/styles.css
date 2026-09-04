@@ -2794,18 +2794,22 @@ body.variant-b { background: var(--cream); }
   -webkit-mask-image: radial-gradient(circle at center, transparent 24%, black 60%);
           mask-image: radial-gradient(circle at center, transparent 24%, black 60%);
 }
-.reveal-visual picture {
+.reveal-visual picture,
+.reveal-visual .reveal-vid {
   position: relative;
   z-index: 1;
   display: block;
   width: 92%;
   max-width: 500px;
+  height: auto;
+  aspect-ratio: 1 / 1;
 }
 .reveal-visual picture img {
   width: 100%;
   height: auto;
   display: block;
 }
+.reveal-vid { object-fit: contain; }
 
 /* -------- Mobile -------- */
 @media (max-width: 720px) {
