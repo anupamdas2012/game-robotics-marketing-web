@@ -2493,6 +2493,10 @@ body.variant-b { background: var(--cream); }
   padding: 0;
   display: block;
   position: relative;
+  /* Neutralize v1's global .hero-robot rule (bob animation + drop-shadow)
+     — same class name lives in v1-toybox but means an image there. */
+  animation: none;
+  filter: none;
 }
 .hr-video-band {
   width: 100%;
