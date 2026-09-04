@@ -2488,15 +2488,38 @@ body.variant-b { background: var(--cream); }
 
 /* -------- Hero (product-forward, not video) -------- */
 .hero-robot {
-  max-width: var(--max);
-  margin: 2.5rem auto 3rem;
-  padding: 0 1.5rem;
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 3rem;
-  align-items: center;
+  max-width: 100%;
+  margin: 0 0 3.5rem;
+  padding: 0;
+  display: block;
   position: relative;
 }
+.hr-video-band {
+  width: 100%;
+  height: clamp(340px, 58vh, 620px);
+  position: relative;
+  overflow: hidden;
+  /* Fade top + bottom into the cream page so the video feels
+     seamless rather than sitting in a hard-edged strip */
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 72%, transparent 100%);
+          mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 72%, transparent 100%);
+}
+.hr-robot-vid-wide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hr-copy-centered {
+  max-width: 720px;
+  margin: -1rem auto 0;
+  padding: 0 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.hr-copy-centered .lede { margin-left: auto; margin-right: auto; }
+.hr-copy-centered .signup { max-width: 520px; margin-left: auto; margin-right: auto; }
 .hero-robot .hr-copy { position: relative; z-index: 2; }
 .hero-robot h1 {
   font-family: 'Fraunces', serif;
@@ -2557,15 +2580,21 @@ body.variant-b { background: var(--cream); }
   animation: hr-bob 5s ease-in-out infinite;
 }
 .hr-robot-vid {
-  width: 78%;
-  max-width: 460px;
+  width: 100%;
+  max-width: 620px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
-  border-radius: 28px;
-  border: 3px solid var(--ink);
-  box-shadow: 8px 10px 0 var(--ink);
-  background: #efefef;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  /* Fade the studio-gray edges of the video into the cream page so
+     Lex looks like he's floating on the background, not sitting in
+     a frame. Feathered oval keeps the robot fully opaque in the
+     center and lets the ambient halo/rings glow through. */
+  -webkit-mask-image: radial-gradient(ellipse 62% 62% at center, #000 55%, transparent 88%);
+          mask-image: radial-gradient(ellipse 62% 62% at center, #000 55%, transparent 88%);
 }
 @keyframes hr-bob {
   0%, 100% { transform: translateY(0); }
@@ -2698,15 +2727,15 @@ body.variant-b { background: var(--cream); }
 
 /* -------- Reveal: platform enters as the enabler -------- */
 .reveal {
-  background: var(--dark);
-  color: white;
+  /* White at the top-left, easing into a soft brand-blue at the
+     bottom-right so the illustration's white background blends into
+     the section without a visible edge. */
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 35%, #dbeafe 75%, #7cc4ff 100%);
+  color: var(--ink);
   padding: 6rem 1.5rem;
   margin: 5rem 0;
   border-top: 3px solid var(--ink);
   border-bottom: 3px solid var(--ink);
-  box-shadow:
-    inset 0 24px 40px -24px rgba(245, 197, 24, 0.22),
-    inset 0 -24px 40px -24px rgba(245, 197, 24, 0.18);
   position: relative;
   overflow: hidden;
 }
@@ -2726,38 +2755,19 @@ body.variant-b { background: var(--cream); }
   font-size: clamp(2rem, 3.6vw, 3rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: white;
+  color: var(--ink);
   margin: 0.6rem 0 1.25rem;
   text-wrap: balance;
 }
 .reveal-copy h2 em {
-  color: var(--yellow);
+  color: var(--blue);
   font-style: italic;
 }
 .reveal-copy p {
   font-size: 1.1rem;
-  color: rgba(255,255,255,0.85);
+  color: var(--ink-2);
   line-height: 1.55;
   margin: 0 0 1rem;
-}
-.reveal-kicker {
-  font-family: 'Fraunces', serif;
-  font-style: italic;
-  font-size: 1.2rem !important;
-  color: var(--yellow) !important;
-  margin-top: 1.25rem !important;
-}
-.eyebrow-invert {
-  background: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.9);
-  border-color: rgba(255,255,255,0.25);
-}
-.pill-list-invert li,
-.pill-list-invert li:nth-child(2n),
-.pill-list-invert li:nth-child(3n) {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.28);
-  color: white;
 }
 .reveal-visual {
   position: relative;
@@ -2766,62 +2776,28 @@ body.variant-b { background: var(--cream); }
   place-items: center;
   isolation: isolate;
 }
-.reveal-glow {
-  position: absolute;
-  inset: 8%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(245,197,24,0.28), rgba(245,197,24,0.06) 55%, transparent 70%);
-  filter: blur(8px);
-  z-index: -1;
-}
+.reveal-visual picture,
 .reveal-visual img {
-  width: 82%;
-  max-width: 440px;
+  width: 92%;
+  max-width: 500px;
   height: auto;
-  filter: drop-shadow(6px 10px 0 rgba(0,0,0,0.6));
-}
-.reveal-tag {
-  position: absolute;
-  bottom: 6%;
-  right: 4%;
-  background: var(--yellow);
-  color: var(--ink);
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 700;
-  font-size: 0.78rem;
-  padding: 0.5em 0.85em;
-  border-radius: 999px;
-  border: 2px solid var(--ink);
-  box-shadow: 3px 3px 0 var(--ink);
-  transform: rotate(-3deg);
+  display: block;
 }
 
 /* -------- Mobile -------- */
 @media (max-width: 720px) {
   .hero-robot {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin: 1.5rem auto 2rem;
-    padding: 0 1.25rem;
+    margin: 0 auto 2rem;
   }
   .hero-robot h1 {
-    font-size: clamp(2rem, 8.5vw, 2.6rem);
+    font-size: clamp(1.9rem, 7.5vw, 2.4rem);
     letter-spacing: -0.03em;
   }
   .hero-robot .lede { font-size: 1rem; }
-  .hr-stage {
-    order: -1;
-    aspect-ratio: 1 / 0.85;
-    min-height: 320px;
+  .hr-video-band {
+    height: clamp(260px, 42vh, 380px);
   }
-  .hr-robot-img,
-  .hr-robot-vid { width: 82%; max-width: 340px; }
-  .hr-robot-vid { border-radius: 22px; box-shadow: 6px 8px 0 var(--ink); }
-  .hr-chip { font-size: 0.68rem; padding: 0.4em 0.7em; }
-  .hr-chip-a { top: 4%; left: 2%; }
-  .hr-chip-b { top: 42%; right: 0; }
-  .hr-chip-c { bottom: 6%; left: 4%; }
-  .hr-plate { font-size: 0.62rem; }
+  .hr-copy-centered { padding: 0 1.25rem; }
 
   .meet, .inside { margin: 3.5rem auto; padding: 0 1.25rem; }
   .vignettes {

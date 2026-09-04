@@ -25,9 +25,19 @@
     </nav>
   </header>
 
-  <!-- Hero: the robot IS the pitch -->
+  <!-- Hero: cinematic full-bleed video, copy stacked below -->
   <section class="hero-robot" id="top">
-    <div class="hr-copy">
+    <div class="hr-video-band">
+      <video
+        class="hr-robot-vid-wide"
+        autoplay muted loop playsinline preload="metadata"
+        poster="assets/lex-jr-wide-poster.jpg"
+        aria-label="Lex Jr., a friendly companion robot with big eyes">
+        <source src="assets/lex-jr-wide.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <div class="hr-copy hr-copy-centered">
       <h1>
         Meet <em>Lex Jr.</em><br />
         An expressive robot designed for human interaction and creative exploration.
@@ -43,26 +53,6 @@
         </button>
       </form>
       <p id="signup-success" class="signup-success" hidden>You're on the list. Talk soon 🌱</p>
-    </div>
-
-    <div class="hr-stage">
-      <div class="hr-halo"></div>
-      <div class="hr-ring hr-ring-1"></div>
-      <div class="hr-ring hr-ring-2"></div>
-      <video
-        class="hr-robot-vid"
-        autoplay muted loop playsinline preload="metadata"
-        poster="assets/lex-jr-poster.jpg"
-        aria-label="Lex Jr., a friendly companion robot with big eyes">
-        <source src="assets/lex-jr.mp4" type="video/mp4" />
-      </video>
-      <div class="hr-chip hr-chip-a">👋 hi there</div>
-      <div class="hr-chip hr-chip-b">✧ recognizes you</div>
-      <div class="hr-chip hr-chip-c">✿ on-device brain</div>
-      <div class="hr-plate">
-        <span class="hr-plate-brand">GAME ROBOTICS</span>
-        <span class="hr-plate-code">LEX JR.</span>
-      </div>
     </div>
   </section>
 
@@ -162,7 +152,7 @@
   <section class="reveal" id="engine">
     <div class="reveal-inner">
       <div class="reveal-copy">
-        <div class="eyebrow eyebrow-invert"><span class="dot"></span> The engine behind him</div>
+        <div class="eyebrow"><span class="dot"></span> The engine behind him</div>
         <h2>Built with the <em>Game Robotics</em> platform.</h2>
         <p>
           Game Robotics is an AI-native creation engine for robots.
@@ -170,20 +160,12 @@
           all in one place, so building a robot flows: sketch it, iterate on it,
           and watch it come alive.
         </p>
-        <p class="reveal-kicker">
-          Lex Jr. is the first robot. The engine that made him is what comes next.
-        </p>
-        <ul class="pill-list pill-list-invert">
-          <li>Open the hood on Lex</li>
-          <li>Add sensors + capabilities</li>
-          <li>Build entirely new robots</li>
-          <li>Share what you make</li>
-        </ul>
       </div>
       <div class="reveal-visual">
-        <div class="reveal-glow"></div>
-        <img src="assets/lex-jr.png" alt="Lex Jr., the first robot built with Game Robotics" />
-        <div class="reveal-tag">built with GR</div>
+        <picture>
+          <source type="image/webp" srcset="assets/lex-jr-illustration.webp" />
+          <img src="assets/lex-jr-illustration.png" alt="Illustration of Lex Jr." />
+        </picture>
       </div>
     </div>
   </section>
