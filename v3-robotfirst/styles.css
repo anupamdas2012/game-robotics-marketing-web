@@ -2776,10 +2776,29 @@ body.variant-b { background: var(--cream); }
   place-items: center;
   isolation: isolate;
 }
-.reveal-visual picture,
-.reveal-visual img {
+/* Faded node-editor hint behind Lex — visible around the silhouette
+   but subordinate to the robot. Radial mask keeps the very center
+   (where the robot's face sits) especially soft so nothing competes. */
+.reveal-nodes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: radial-gradient(circle at center, transparent 24%, black 60%);
+          mask-image: radial-gradient(circle at center, transparent 24%, black 60%);
+}
+.reveal-visual picture {
+  position: relative;
+  z-index: 1;
+  display: block;
   width: 92%;
   max-width: 500px;
+}
+.reveal-visual picture img {
+  width: 100%;
   height: auto;
   display: block;
 }
